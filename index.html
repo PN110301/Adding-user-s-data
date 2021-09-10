@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel='stylesheet' href="index.css">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+      <h2 align='center'>Assignment</h2>
+    <div class="mx-2 my-6" id="entry-buttons">
+        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#LoginModal">Login</button>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Sign-UpModal">Sign-Up</button>
+    </div>
+
+    <div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="LoginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="LoginModalLabel">Login to Continue</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="exampleInputNumber" class="form-label">Mobile Number</label>
+                  <input type="number" class="form-control" id="exampleInputNumber" aria-describedby="numberHelp">
+                  <div id="numberHelp" class="form-text"> Enter 10 digit number only!</div>
+                </div>
+                <button type="button" class="btn btn-success" id="get-otp">Get OTP</button><span id="otp-number"></span>
+                <div class="mb-3">
+                    <label for="exampleInputNumber1" class="form-label">Enter OTP</label>
+                    <input type="number" class="form-control" id="exampleInputNumber1" aria-describedby="numberHelp1">
+                </div>
+                
+                <button type="submit" class="btn btn-primary" id="login">Login</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="modal fade" id="Sign-UpModal" tabindex="-1" aria-labelledby="Sign-UpModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="Sign-UpModalLabel">Getting a New Account</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="createAccount">
+                <div class="mb-3">
+                  <label for="exampleName" class="form-label">First Name</label>
+                  <input type="text" class="form-control" id="exampleName" aria-describedby="nameHelp">
+                  
+                </div>
+                <div class="mb-3">
+                    <label for="exampleName1" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="exampleName1" aria-describedby="nameHelp1">
+                    
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleAge" class="form-label">Age</label>
+                    <input type="number" class="form-control" id="exampleAge" aria-describedby="AgeHelp">
+                    
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleGender" class="form-label">Gender</label>
+                    <input type="text" class="form-control" id="exampleGender" aria-describedby="genderHelp">
+                    
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleHeight" class="form-label">Height(cm)</label>
+                    <input type="number" class="form-control" id="exampleHeight" aria-describedby="heightHelp">
+                    
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleWeight" class="form-label">Weight(kgs)</label>
+                    <input type="number" class="form-control" id="exampleWeight" aria-describedby="weightHelp">
+                    
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleUpload" class="form-label">Upload(only PDFs)</label>
+                    <input type="file" class="form-control" id="exampleUpload" name="upload" accept="application/pdf" aria-describedby="weightHelp">
+                    
+                  </div>
+                <button type="submit" class="btn btn-primary" value="Add User"  id="create-account">Create Account</button>
+              </form>
+            </div>
+            
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container my-3" id="table-data">
+        
+                   
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>Age</th>
+              <th>Gender</th>
+              <th>Height</th>
+              <th>Weight</th>
+              <th>BMI</th>
+            </tr>
+          </thead>
+          <tbody id="tablebody">
+            <!-- <tr>
+              <td>John</td>
+              <td>Doe</td>
+              <td>25</td>
+              <td>Male</td>
+              <td>150cm</td>
+              <td>70kgs</td>
+              <td>31.1</td>
+            </tr>
+            <tr>
+              <td>Mary</td>
+              <td>Moe</td>
+              <td>27</td>
+              <td>Female</td>
+              <td>145cm</td>
+              <td>58kgs</td>
+              <td>27.6</td>
+            </tr>
+            <tr>
+              <td>July</td>
+              <td>Dooley</td>
+              <td>45</td>
+              <td>Male</td>
+              <td>140cm</td>
+              <td>90kgs</td>
+              <td>45.9</td>
+            </tr> -->
+          </tbody>
+        </table>
+      </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src='index.js'></script>
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

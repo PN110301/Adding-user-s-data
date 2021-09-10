@@ -1,0 +1,17 @@
+div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h2{
+   margin-top: 5%;
+   font-size:40px;
+}
+button{
+    margin:10px;
+    width:100px;
+    
+}
+#table-data{
+    display: block;
+}
